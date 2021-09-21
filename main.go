@@ -32,8 +32,8 @@ func main() {
 	data["category"] = "Test"
 	data["currency"] = "USD"
 	data["customer_first_name"] = "Hello"
-	data["customer_full_name"] = "Hello Go"
 	data["customer_last_name"] = "Go"
+	data["customer_full_name"] = "Hello Go"
 	data["customer_gender"] = "Male"
 	data["customer_id"] = 2345
 	data["customer_phone"] = "P-12346"
@@ -49,7 +49,7 @@ func main() {
 	// }
 	// defer res.Body.Close()
 
-	res, err := es.Index("data_ecommerce-2019-12-09", esutil.NewJSONReader(&data), es.Index.WithDocumentID("test_data_p12346"), es.Index.WithRefresh("true"))
+	res, err := es.Index("data_ecommerce", esutil.NewJSONReader(&data), es.Index.WithDocumentID("test_data_p12346"), es.Index.WithRefresh("true"))
 	if err != nil {
 		log.Fatalf("Error getting response: %s", err)
 	}
